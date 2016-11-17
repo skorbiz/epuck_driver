@@ -1,0 +1,6 @@
+<launch>
+
+    <node pkg="epuck_interface_demo" type="epuck_interface_demo" name="epuck_interface_demo" output="screen">
+    </node>
+
+</launch>
