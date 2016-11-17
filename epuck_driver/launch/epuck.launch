@@ -1,0 +1,45 @@
+<launch>
+
+    <arg name="epuck_id" default="epuck_0763"/>
+    <arg name="epuck_address" default="10:00:E8:52:91:96"/>
+    <arg name="epuck_name" default="epuck_robot_0"/>
+    <arg name="is_single_robot" default="1" />
+    <arg name="xpos" default="0.0"/>
+    <arg name="ypos" default="0.0"/>
+    <arg name="theta" default="0.0"/>
+    <arg name="acc_en" default="true"/>
+    <arg name="prox_en" default="false"/>
+    <arg name="mot_pos_en" default="false"/>
+    <arg name="floor_en" default="false"/>
+    <arg name="mot_speed_en" default="false"/>
+    <arg name="mic_en" default="false"/>
+    <arg name="cam_en" default="false"/>    
+    <arg name="cam_width" default="40" /> 		<!-- By default width = 160 -->
+    <arg name="cam_height" default="40" />  	<!-- By default height = 2 -->
+    <arg name="cam_zoom" default="8" /> 		<!-- Can be 1 (default), 2, 4, 8 -->
+    <arg name="cam_mode" default="0" /> 		<!-- 0=gray (default), 1=rgb565 -->
+    <arg name="cam_x_offset" default="-1" />  	<!-- By default the slice will be centered. -->
+    <arg name="cam_y_offset" default="-1" />     
+    
+    <node pkg="epuck_driver_my" type="epuck_driver_my" name="$(arg epuck_name)" output="screen">
+        <param name="epuck_id" value="$(arg epuck_id)"/>
+        <param name="epuck_address" value="$(arg epuck_address)"/>
+        <param name="epuck_name" value="$(arg epuck_name)"/>
+        <param name="xpos" value="$(arg xpos)"/>
+		<param name="ypos" value="$(arg ypos)"/>
+		<param name="theta" value="$(arg theta)"/> 
+        <param name="camera" value="$(arg cam_en)"/>
+        <param name="accelerometer" value="$(arg acc_en)"/>
+        <param name="proximity" value="$(arg prox_en)"/>
+        <param name="motor_position" value="$(arg mot_pos_en)"/>
+        <param name="floor" value="$(arg floor_en)"/>
+        <param name="motor_speed" value="$(arg mot_speed_en)"/>
+		<param name="microphone" value="$(arg mic_en)"/> 
+        <param name="cam_width" value="$(arg cam_width)"/>
+        <param name="cam_height" value="$(arg cam_height)"/>
+        <param name="cam_zoom" value="$(arg cam_zoom)"/>
+        <param name="cam_mode" value="$(arg cam_mode)"/>
+        <param name="cam_x_offset" value="$(arg cam_x_offset)"/>
+        <param name="cam_y_offset" value="$(arg cam_y_offset)"/>   
+    </node>
+</launch>
