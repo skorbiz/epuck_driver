@@ -36,18 +36,31 @@ include_directories(
 ## Build ##
 ###########
 
-## Declare a cpp executable
-add_executable(epuck_driver 
-	src/main.cpp 
+# Declare a C++ library
+ add_library(epuck_driver
 	src/BasicCppDriver.cpp 
 	src/BluetoothConnection.cpp 
-	src/RosWrapper.cpp )
+	src/RosWrapper.cpp
+ )
 
-## Add cmake target dependencies of the executable/library
-## as an example, message headers may need to be generated before nodes
-# add_dependencies(epuck_driver_node epuck_driver_generate_messages_cpp)
-
-## Specify libraries to link a library or executable target against
-target_link_libraries(epuck_driver bluetooth ${catkin_LIBRARIES} ${OpenCV_LIBRARIES}
+## Specify libraries to link a library against
+target_link_libraries(epuck_driver
+  ${catkin_LIBRARIES}
+  ${OpenCV_LIBRARIES}
+  bluetooth
 )
 
+
+## Declare a cpp executable
+add_executable(epuck_driver_node 
+	src/main.cpp 
+	 )
+
+## Add cmake target dependencies of the executable
+## same as for the library above
+ add_dependencies(epuck_driver_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+
+## Specify libraries to link a library or executable target against
+ target_link_libraries(epuck_driver_node
+   epuck_driver
+ )

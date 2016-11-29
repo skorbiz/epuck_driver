@@ -39,10 +39,10 @@ public:
 	BasicCppDriver(std::string epuck_name,
 			BluetoothConnection & epuck_bt_connection,
 			bool enabled_sensors[SENSORS_NUM],
-			int cam_width,
-			int cam_height,
-			int cam_zoom,
-			int cam_mode,
+			int cam_width = 160,
+			int cam_height = 2,
+			int cam_zoom = 1,
+			int cam_mode = 0,
 			int cam_x_offset = -1,
 			int cam_y_offset = -1);
 	virtual ~BasicCppDriver();

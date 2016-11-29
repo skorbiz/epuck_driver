@@ -182,13 +182,13 @@ void BasicCppDriver::updateCameraImage()
 
 void BasicCppDriver::updateSelector()
 {
-		char msg[2];
-		msg[0] = 'C';
-		msg[1] = '\r';
-		int bytesToReceive = 5;
-		char robotToPcBuff[bytesToReceive];
-		unsigned int bytesRead = _epuck_bt_connnection.readFromConnection(msg,2, robotToPcBuff, bytesToReceive);
-		selector = robotToPcBuff[2] - '0';
+	char msg[2];
+	msg[0] = 'C';
+	msg[1] = '\r';
+	int bytesToReceive = 5;
+	char robotToPcBuff[bytesToReceive];
+	unsigned int bytesRead = _epuck_bt_connnection.readFromConnection(msg,2, robotToPcBuff, bytesToReceive);
+	selector = robotToPcBuff[2] - '0';
 }
 
 

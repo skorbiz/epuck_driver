@@ -276,7 +276,7 @@ unsigned int BluetoothConnection::readFromConnection(char * msg, unsigned int le
     memset(ret_msg, 0x0, ret_msg_size);
     FD_ZERO(&readfds);
     FD_SET(rfcommSock, &readfds);
-    write(rfcommSock, msg, 2);
+    write(rfcommSock, msg, length);
     bytesRead = 0;
 
     if(DEBUG_UPDATE_SENSORS_TIMING)gettimeofday(&lastTime3, NULL);

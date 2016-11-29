@@ -93,7 +93,6 @@ void RosWrapper::updateSensors()
 {
 	epuck.updateSensorValues();
 	epuck.updateCameraImage();
-	epuck.updateSelector();
 	updateProximity();
 	updateMotorPosition();
 	updateAccelerometer();
@@ -430,8 +429,6 @@ void RosWrapper::updateMotorSpeed()
 		motorSpeedPublisher.publish(motorSpeedMsg);
 	}
 }
-
-
 
 void RosWrapper::updateFloor()
 {
